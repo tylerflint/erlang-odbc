@@ -1,9 +1,7 @@
 #!/usr/bin/env escript
 
--include_lib("kernel/include/odbc.hrl").
-
 main([]) ->
-  {ok, Connection} = odbc:connect("DRIVER={MonetDB};Server=localhost;Port=50000;UID=monetdb;PWD=monetdb;DATABASE=pagoda-stats"),
+  {ok, Connection} = odbc:connect("DRIVER={MonetDB};Server=localhost;Port=50000;UID=monetdb;PWD=monetdb;DATABASE=pagoda-stats", []),
   Query = "INSERT INTO people VALUES ('tyler', 26, '" ++ current_time_string() ++ "')",
   Result = odbc:sql_query(Connection, Query).
 
