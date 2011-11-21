@@ -3,7 +3,13 @@
 main([]) ->
   odbc:start(),
   {ok, Connection} = odbc:connect("DRIVER={MonetDB};Server=localhost;Port=50000;UID=monetdb;PWD=monetdb;DATABASE=pagoda-stats", []),
-  insert(Connection, 1).
+  Start = erlang:now(),
+  insert(Connection, 1),
+  Stop = erlang:now(),
+  Diff = timer:now_diff(Stop, Start),
+  Minutes = timer:minutes(Diff),
+  Seconds = timer:seconds(Diff),
+  io:format("~s minutes and ~s seconds~n", [Minutes, Seconds]).
 
 
 current_time_string() ->
@@ -12,7 +18,7 @@ current_time_string() ->
   S = io_lib:format("~B-~2.10.0B-~2.10.0BT~2.10.0B:~2.10.0B:~2.10.0BZ", Args),
   lists:flatten(S).
 
-insert(_Connection, 10000) ->
+insert(_Connection, 1000) ->
   ok;
 
 insert(Connection, Count) ->
