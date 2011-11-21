@@ -19,7 +19,7 @@ current_time_string() ->
   S = io_lib:format("~B-~2.10.0B-~2.10.0BT~2.10.0B:~2.10.0B:~2.10.0BZ", Args),
   lists:flatten(S).
 
-insert(_Connection, 1000) ->
+insert(_Connection, 500) ->
   ok;
 
 insert(Connection, Count) ->
