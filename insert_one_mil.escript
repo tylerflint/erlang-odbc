@@ -1,16 +1,17 @@
 #!/usr/bin/env escript
 
 main([]) ->
-  odbc:start(),
-  {ok, Connection} = odbc:connect("DRIVER={MonetDB};Server=localhost;Port=50000;UID=monetdb;PWD=monetdb;DATABASE=pagoda-stats", []),
-  Now = current_time_string(),
-  Start = erlang:now(),
-  insert(Connection, Now, 1),
-  Stop = erlang:now(),
-  Diff = timer:now_diff(Stop, Start),
-  % Minutes = timer:minutes(Diff),
-  Seconds = Diff / 1000000,
-  io:format("~p seconds ~n", [Seconds]).
+  % odbc:start(),
+  % {ok, Connection} = odbc:connect("DRIVER={MonetDB};Server=localhost;Port=50000;UID=monetdb;PWD=monetdb;DATABASE=pagoda-stats", []),
+  % Now = current_time_string(),
+  % Start = erlang:now(),
+  % insert(Connection, Now, 1),
+  % Stop = erlang:now(),
+  % Diff = timer:now_diff(Stop, Start),
+  % % Minutes = timer:minutes(Diff),
+  % Seconds = Diff / 1000000,
+  % io:format("~p seconds ~n", [Seconds]).
+  io:format("~s~n", [current_time_string()]).
 
 
 current_time_string() ->
