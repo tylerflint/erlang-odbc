@@ -10,7 +10,7 @@ main([]) ->
   % Minutes = timer:minutes(Diff),
   Seconds = Diff / 1000000,
   io:format("~p seconds ~n", [Seconds]).
-  io:format("~s~n", [current_time_string()]).
+  % io:format("~s~n", [current_time_string()]).
 
 
 current_time_string() ->
