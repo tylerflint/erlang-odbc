@@ -19,7 +19,7 @@ main([]) ->
 %   S = io_lib:format("~B-~2.10.0B-~2.10.0BT~2.10.0B:~2.10.0B:~2.10.0BZ", Args),
 %   lists:flatten(S).
 
-insert(_Connection, 10001) ->
+insert(_Connection, 1001) ->
   ok;
 
 insert(Connection, Count) ->
